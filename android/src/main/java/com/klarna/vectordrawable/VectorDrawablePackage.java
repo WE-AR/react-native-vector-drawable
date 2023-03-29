@@ -16,10 +16,10 @@ public class VectorDrawablePackage implements ReactPackage {
     @Override
     @NonNull
     public List<NativeModule> createNativeModules(@NonNull final ReactApplicationContext reactContext) {
-        if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
+        if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED && BuildConfig.CODEGEN_MODULE_REGISTRATION != null) {
             // TODO: Remove when auto-linking will support Fabric modules
             // See: https://github.com/software-mansion/react-native-screens/blob/main/android/src/main/java/com/swmansion/rnscreens/RNScreensPackage.kt#L16
-            SoLoader.loadLibrary("vectordrawable_modules");
+            SoLoader.loadLibrary(BuildConfig.CODEGEN_MODULE_REGISTRATION);
         }
         return Collections.emptyList();
     }

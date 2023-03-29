@@ -34,7 +34,7 @@ def getExtOrIntegerDefault(name) {
 def registrationCompat = {
   def reactNativeManifest = file("$projectDir/../node_modules/react-native/package.json").exists()
     ? file("$projectDir/../node_modules/react-native/package.json") // developer mode, to run example app
-    : file("$projectDir/../../react-native/package.json")
+    : file("$projectDir/../../../react-native/package.json")
   def reactNativeVersion = new JsonSlurper().parseText(reactNativeManifest.text).version as String
   // Fabric was introduced at react-native@0.68, full CMake support were introduced at react-native@0.71
   // Use Android.mk for compatibility with react-native@0.68/0.69
@@ -109,10 +109,9 @@ android {
   sourceSets {
     main {
       if (isNewArchitectureEnabled()) {
-          java.srcDirs += [
-            // This is needed to build Kotlin project with NewArch enabled
-            "${project.buildDir}/generated/source/codegen/java"
-          ]
+          java.srcDirs += ['src/fabric/java']
+      } else {
+          java.srcDirs += ['src/paper/java', 'build/generated/source/codegen/java']
       }
     }
   }

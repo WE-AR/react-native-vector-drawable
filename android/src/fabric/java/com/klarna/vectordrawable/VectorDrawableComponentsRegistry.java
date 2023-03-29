@@ -8,7 +8,7 @@ import com.facebook.soloader.SoLoader;
 @DoNotStrip
 public class VectorDrawableComponentsRegistry {
     static {
-      SoLoader.loadLibrary("vectordrawable_registration");
+      SoLoader.loadLibrary(BuildConfig.CODEGEN_MODULE_REGISTRATION);
     }
 
     @DoNotStrip private final HybridData mHybridData;

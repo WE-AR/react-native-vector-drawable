@@ -1,17 +1,17 @@
-LIB_DIR := $(call my-dir)
+THIS_DIR := $(call my-dir)
 
 include $(REACT_ANDROID_DIR)/Android-prebuilt.mk
 
-include $(LIB_DIR)/../../../build/generated/source/codegen/jni/Android.mk
+include ${GENERATED_SRC_DIR}/codegen/jni/Android.mk
 
 include $(CLEAR_VARS)
 
-LOCAL_PATH := $(LIB_DIR)
+LOCAL_PATH := $(THIS_DIR)
 LOCAL_MODULE := ${CODEGEN_MODULE_NAME}_registration
 
-#LOCAL_C_INCLUDES := $(LOCAL_PATH) $(GENERATED_SRC_DIR)/codegen/jni
+LOCAL_C_INCLUDES := $(LOCAL_PATH)
 LOCAL_SRC_FILES := $(wildcard $(LOCAL_PATH)/*.cpp)
-#LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH) $(GENERATED_SRC_DIR)/codegen/jni
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)
 
 LOCAL_SHARED_LIBRARIES := libjsi \
     libfbjni \
