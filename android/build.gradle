@@ -1,7 +1,7 @@
 import java.nio.file.Paths
 
 buildscript {
-    def kotlin_version = rootProject.ext.get("kotlinVersion")
+    def kotlin_version = project.properties["kotlinVersion"]
 
     if (project == rootProject) {
         repositories {
