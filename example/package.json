@@ -3,18 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android --no-jetifier",
+    "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "postinstall": "DESTINATION='node_modules/@klarna/react-native-vector-drawable' LIB_FILE=`cd .. && echo \\`pwd\\`/\\`npm pack\\`` && (rm -rf $DESTINATION || true) && mkdir -p $DESTINATION && tar -xvzf $LIB_FILE -C $DESTINATION --strip-components 1 && rm $LIB_FILE",
     "lint": "eslint ."
   },
   "dependencies": {
-    "@klarna/react-native-vector-drawable": "*",
     "react": "18.0.0",
-    "react-native": "0.69.0",
-    "react-native-gradle-plugin": "^0.0.7"
+    "react-native": "^0.71.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
